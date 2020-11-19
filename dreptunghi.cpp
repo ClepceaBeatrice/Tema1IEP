@@ -21,9 +21,21 @@ dreptunghi::dreptunghi(const dreptunghi& obj) {
     latime = obj.latime;
 }
 dreptunghi& dreptunghi::operator =(const dreptunghi& ob) {
-    nume = ob.nume;
-    lungime = ob.lungime;
-    latime = ob.latime;
+    nume = ob.nume; //These are integer assignments
+    lungime = ob.lungime;// and the = retains its original
+    latime = ob.latime; //meaning relative to them
+    return *this; //returns a reference to its left-hand argument
+}
+ dreptunghi& dreptunghi::operator =(int a)
+ {  
+    latime = a;
+    lungime = a;
+    return *this;
+ }
+dreptunghi& dreptunghi:: operator +=(const dreptunghi& ob2)
+{
+    this->latime = this->latime + ob2.latime;
+    //this->latime += ob2.latime;
     return *this;
 }
 
